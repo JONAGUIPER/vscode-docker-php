@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   phpfpm:
     build:
@@ -7,7 +7,10 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ../:/var/www/html/public
+      - ../proyectosPHP:/var/www/html/public
+      - ../descargas:/descargas
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     command: php-fpm -F
   db:
     build:
@@ -23,4 +26,6 @@ services:
     ports:
       - 3000:80      
     volumes: 
-      - ../:/var/www/html/public
+      - ../proyectosPHP:/var/www/html/public
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro

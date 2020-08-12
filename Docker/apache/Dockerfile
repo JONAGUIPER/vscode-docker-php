@@ -42,7 +42,10 @@ COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN a2enmod proxy proxy_fcgi
  
 WORKDIR /var/www/html
- 
+
 EXPOSE 80
  
-CMD ["apache2-foreground"]
+# CMD "mkdir /etc/init \
+#     && cp bot/bot-daemon.conf /etc/init/ \
+#     && apache2-foreground"
+CMD "apache2-foreground"
